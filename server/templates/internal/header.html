@@ -9,7 +9,11 @@
             <a href="/about">About</a>
             <a href="/contact">Contact</a>
             <a href="/order">Order Devices</a>
+            {% if current_user.is_authenticated %}
+            <a href="/logout">Logout</a>
+            {% else %}
             <a href="/login">Login</a>
+            {% endif %}
         </div>
     </nav>
 </header>
