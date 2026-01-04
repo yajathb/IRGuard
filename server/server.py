@@ -1,10 +1,22 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, send_from_directory
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'hello world'
+    return render_template('home.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/fonts/<path:filename>')
+def serve_fonts(filename):
+    return send_from_directory('fonts', filename)
 
 if __name__ == '__main__':
     app.run(debug=True)
