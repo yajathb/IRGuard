@@ -1,36 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<header>
+    <nav class="header" role="navigation">
+        <div class="brand">
+            <a href="/">IRGuard</a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/order">Order Devices</a>
+            <a href="/login">Login</a>
+        </div>
+    </nav>
+</header>
 
-<body>
-    <header>
-        <nav class="header" role="navigation">
-            <div class="brand">
-                <a href="/">IRGuard</a>
-            </div>
-            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/contact">Contact</a>
-                <a href="/order">Order Devices</a>
-                <a href="/login">Login</a>
-            </div>
-        </nav>
-    </header>
-    {% block content %}{% endblock %}
-
-    <script>
-        (function () {
-            const btn = document.querySelector('.menu-toggle');
-            const nav = document.querySelector('.header');
-            const links = document.querySelector('.nav-links');
-            if (!btn || !nav || !links) return;
-            btn.addEventListener('click', function () {
-                const isOpen = nav.classList.toggle('open');
-                btn.setAttribute('aria-expanded', String(isOpen));
-            });
-        })();
-    </script>
+<script>
+    (function () {
+        const btn = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.header');
+        if (!btn || !nav) return;
+        btn.addEventListener('click', function () {
+            const isOpen = nav.classList.toggle('open');
+            btn.setAttribute('aria-expanded', String(isOpen));
+        });
+    })();
+</script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory
 
 app = Flask(__name__)
 
@@ -13,6 +13,14 @@ def about():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/order')
+def order():
+    return render_template('order.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 @app.route('/fonts/<path:filename>')
 def serve_fonts(filename):
