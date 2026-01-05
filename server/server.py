@@ -86,5 +86,11 @@ def register():
 
     return render_template("register.html")
 
+@app.route("/clear_database")
+def clear_database():
+    db.session.query(User).delete()
+    db.session.commit()
+    return "Database cleared"
+
 if __name__ == '__main__':
     app.run(debug=True)
